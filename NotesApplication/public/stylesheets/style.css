@@ -3,12 +3,12 @@
     justify-content: space-between;
 }
 #hideFinsished{
-   margin-left: 57.2em;
-}
-#container2{
-    display: flex;
-    justify-content: space-between;
+   margin-left: 62%;
 }
 #beschreibung{
     border:1px solid black;
 }
+form input{
+    width: 100%;
+}
+
