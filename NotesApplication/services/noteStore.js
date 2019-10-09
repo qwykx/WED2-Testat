@@ -16,11 +16,16 @@ export class NoteStore{
     }
 
     async add(note){
-        return db.insert(note);
+        return await db.insert(note);
+    }
+
+    async edit(id, note) {
+        await this.db.update({_id: id}, note);
+        return await this.get(id);
     }
 
     async delete(id) {
-        await this.db.update({_id: id}, {$set: {"state": "DELETED"}});
+        await this.db.update({_id: id}, {$set: {"erledigt": true}});
         return await this.get(id);
     }
 
