@@ -12,25 +12,35 @@ class Note{
     }
 }
 
-class noteService{
+class Service{
     constructor(){}
 
-    addNoteToDb(note){
-        db.insert(note);
+    addNoteToDb(note, callback){
+        db.insert(note, function(err, newDoc){
+            if(callback){
+                callback(err, newDoc);
+            }
+        });
     }
 
-    getAllNotes() {
-        db.find({});
+    getAllNotes(callback) {
+        db.find({}, function (err, docs) {
+            callback( err, docs);
+        });
     }
 
 
-    getNote(id){
-        db.findOne({ _id: id });
+    getNote(id, callback){
+        db.findOne({ _id: id }, function (err, doc) {
+            callback( err, doc);
+        });
     }
 
-    deleteNote(id){
-        db.update({_id: id}, {$set: {"state": "DELETED"}}, {returnUpdatedDocs:true});
+    deleteNote(id, callback){
+        db.update({_id: id}, {$set: {"state": "DELETED"}}, {returnUpdatedDocs:true}, function (err, numDocs, doc) {
+            callback(err, doc);
+        });
     }
 }
 
-module.exports = {Note, noteService};
+module.exports = {Note, Service};
