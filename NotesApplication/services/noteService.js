@@ -6,7 +6,7 @@ class Note{
     constructor(title, beschreibung, wichtigkeit, fertigBis, erledigt){
         this.title = title;
         this.beschreibung = beschreibung;
-        this.wichttigkeit = wichtigkeit;
+        this.wichtigkeit = wichtigkeit;
         this.fertigBis = fertigBis;
         this.erledigt = erledigt;
     }
