@@ -1,11 +1,9 @@
-<div>
     <p>Neue Todo</p>
-</div>
-<form>
-    <label for="title">Title</label><input id="title" type="text">
-    <label for="Beschreibung">Beschreibung</label><input id="Beschreibung" type="text">
-    <label for="wichtigkeit">Wichtigkeit</label><input id="wichtigkeit" type="number">
-    <label for="fertigbis">Fertig bis</label><input id="fertigbis" type="date">
-    <input type="checkbox" id="check"><label for="check">Erledigt!</label>
-    <button type="submit">Anlegen</button><button type="reset">Abbruch</button>
-</form>
+    <form action="/notes" method="post">
+        <label for="title">Title</label><input type="text" name="title" id="title">
+        <label for="beschreibung">Beschreibung</label><input type="text" name="beschreibung" id="beschreibung">
+        <label for="wichtigkeit">Wichtigkeit</label><input type="number" name="wichtigkeit" id="wichtigkeit">
+        <label for="fertigBis">Fertig bis</label><input type="date" name="fertigBis" id="fertigBis">
+        <input type="checkbox" name="erledigt" id="check"><label name="check">Erledigt!</label>
+        <button type="submit">Anlegen</button><button type="reset">Abbruch</button>
+    </form>

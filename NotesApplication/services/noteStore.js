@@ -16,7 +16,7 @@ export class NoteStore{
     }
 
     async add(note){
-        return await db.insert(note);
+        return await this.db.insert(note);
     }
 
     async edit(id, note) {
