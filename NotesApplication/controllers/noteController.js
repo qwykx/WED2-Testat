@@ -22,7 +22,7 @@ export class NoteController {
 
     async updateNote(req, res) {
         let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, req.body.erledigt);
-        await res.render("index", await noteStore.edit(req.params.id, note));
+        await res.render("index", await noteStore.update(req.params.id, note));
     }
 
     async deleteNote(req, res) {
