@@ -1,8 +1,9 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const Controller = require('../controllers/NoteController');
+import {noteController} from '../controllers/noteController.js';
 
-router.get("/", Controller.index);
-router.get("/create", Controller.showCreate);
+router.get("/", noteController.index);
+router.get("/create", noteController.showCreate.bind(noteController));
+router.post("/create", noteController.createNote.bind(noteController));
 
-module.exports = router;
+export const noteRoutes = router;
