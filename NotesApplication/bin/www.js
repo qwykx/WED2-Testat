@@ -1,11 +1,8 @@
-var app = require('../app');
-var http = require('http');
+import app from '../app';
 
-var port = '3000';
-app.set('port', port);
-var server = http.createServer(app);
-server.listen(port);
+const hostname = 'localhost';
+const port = '3000';
 
-console.log("Server is now running, http://localhost:" + port);
-
-
+app.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+});
