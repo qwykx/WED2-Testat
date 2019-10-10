@@ -14,12 +14,6 @@ input:focus, textarea:focus, select:focus {
     outline: none;
 }
 
-
-
-
-
-
-
 textarea {
     height: 100px;
 }
@@ -45,5 +39,3 @@ button[type=reset] {
     color: white;
     background-color: indianred;
 }
-
-
