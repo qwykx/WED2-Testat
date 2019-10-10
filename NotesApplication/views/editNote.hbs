@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='../stylesheets/style.css' />
+</head>
+<body>
+<h1>Todo ändern</h1>
+
+{{#if title}}
+    <form action="/notes/edit/{{_id}}/" method="post">
+        <label for="title">Title</label><input type="text" name="title" id="title" value="{{title}}">
+        <label for="beschreibung">Beschreibung</label><textare name="beschreibung" id="beschreibung" value="{{beschreibung}}"></textare>
+        <label for="wichtigkeit">Wichtigkeit</label><input type="number" name="wichtigkeit" id="wichtigkeit" value="{{wichtigkeit}}">
+        <label for="fertigBis">Fertig bis</label><input type="date" name="fertigBis" id="fertigBis" value="{{fertigBis}}">
+        <input type="checkbox" name="erledigt" id="check" checked="{{erledigt}}"><label name="check">Erledigt!</label>
+        <button type="submit">Aktualisieren</button><button type="reset">Abbruch</button>
+    </form>
+{{/if}}
+
+</body>
+</html>
+
