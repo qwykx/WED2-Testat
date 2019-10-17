@@ -1,4 +1,4 @@
-input, textarea, select {
+input[type="text"],input[type="date"], input[type="number"], textarea, select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -9,9 +9,42 @@ input, textarea, select {
     box-shadow: inset 0 1px 3px #ddd;
 }
 
-input:focus, textarea:focus, select:focus {
+input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .9);
     outline: none;
+}
+
+.switch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.switch-checkbox {
+    display: none;
+}
+.switch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    height: 30px; padding: 0; line-height: 30px;
+    border: 2px solid #999999; border-radius: 30px;
+    background-color: #EEEEEE;
+    transition: background-color 0.3s ease-in;
+}
+.switch-label:before {
+    content: "";
+    display: block; width: 30px; margin: 0px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 58px;
+    border: 2px solid #999999; border-radius: 30px;
+    transition: all 0.3s ease-in 0s;
+}
+.switch-checkbox:checked + .switch-label {
+    background-color: #34C274;
+}
+.switch-checkbox:checked + .switch-label, .switch-checkbox:checked + .switch-label:before {
+    border-color: #34C274;
+}
+.switch-checkbox:checked + .switch-label:before {
+    right: 0px;
 }
 
 textarea {
@@ -19,13 +52,17 @@ textarea {
 }
 
 button {
-    border: 1px solid black;
+    border: 1px solid darkgrey;
     border-radius: 4px;
     padding: 12px 20px;
     margin: 4px 2px;
     text-decoration: none;
     cursor: pointer;
     background-color: white;
+}
+
+button:focus {
+    outline: none;
 }
 
 button[type=submit] {
@@ -38,4 +75,55 @@ button[type=reset] {
     border: none;
     color: white;
     background-color: indianred;
+}
+
+.btn-group {
+    display: inline-flex;
+    border: 1px solid darkgrey;
+    border-radius: 4px;
+}
+
+.btn-group > button {
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid darkgrey;
+    margin: 0;
+}
+
+button:active, button:hover {
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.btn-group > button:last-child {
+    border-right: none;
+    border-radius: 0 4px 4px 0;
+}
+
+.btn-group > button:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+.container {
+    display: flex;
+}
+
+.container > .row {
+    flex-direction: row;
+}
+
+.container > .column {
+    flex-direction: column;
+}
+
+.container > .centered {
+    justify-content: center;
+}
+
+.container > .flex-start {
+    justify-content: flex-start;
+}
+.container > .flex-end {
+    justify-content: flex-end;
 }
