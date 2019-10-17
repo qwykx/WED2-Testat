@@ -3,8 +3,14 @@ import {Note} from '../services/noteStore'
 
 export class NoteController {
 
-    showIndex(req, res) {
-        res.render("index");
+    async showIndex(req, res) {
+
+        try {
+            const result = await noteStore.all();
+            res.render("index", {data: result});
+        } catch (error) {
+            console.error(`Controller Error-Message: ${error}`);
+        }
     }
 
     showCreate(req, res) {
