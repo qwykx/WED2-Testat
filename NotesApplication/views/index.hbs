@@ -1,23 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="shortcut icon" href="">
+</head>
+<body>
 <div id="container1">
     <button id="createButton">Create new Note</button>
     <button id="styleSwitcher">Style Switcher</button>
 </div>
-<div class="container">
-    <div class="row centered">
-        <div class="btn-group">
-            <button id="sortDate">By finish Date</button>
-            <button id="sortCreated">By Create Date</button>
-            <button id="sortByImportance">By Importance</button>
-            <button id="hideFinsished">Hide finsihed</button>
-        </div>
-    </div>
+<div id="conatainer2">
+    <button id="sortDate">By finish Date</button>
+    <button id="sortCreated">By Create Date</button>
+    <button id="sortByImportance">By Importance</button>
+    <button id="hideFinsished">Hide finsihed</button>
 </div>
-
-<span>title</span><span>rating</span>
-<p>Datum bis fertig</p>
-<div id="container2">
-    <input type="checkbox" class="checkboxFinished">Finished
-
+{{#each data}}
+<div id="container3" data-id="{{this.id}}">
+<span>{{this.title}}</span><span>{{this.beschreibung}}</span><span>{{this.wichtigkeit}}</span>
+<p>{{this.fertigBis}}</p>
+    {{#if this.erledigt}}
+<div id="container4">
+    <input type="checkbox" class="checkboxFinished" checked>Finished
     <p id="beschreibung">Beschreibung</p>
     <button class="editButton">Edit</button>
 </div>
+    </div>
+    {{else}}
+        <div id="container4">
+            <input type="checkbox" class="checkboxFinished">Finished
+
+            <p id="beschreibung">Beschreibung</p>
+            <button class="editButton">Edit</button>
+        </div>
+        </div>
+    {{/if}}
+{{/each}}
+</body>
+</html>
+
