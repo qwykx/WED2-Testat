@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import hbs from 'express-hbs';
 import path from 'path';
+import session from 'express-session';
 import {noteRoutes} from './routes/noteRoutes';
 
 const app = express();
@@ -16,6 +17,7 @@ hbs.registerHelper('for', function(n, block) {
     return counter;
 });
 app.set('view engine', 'hbs');
+app.use(session({secret: 'sadkjlfasdlkfjlasödfjadl', resave: false, saveUninitialized: true}));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
