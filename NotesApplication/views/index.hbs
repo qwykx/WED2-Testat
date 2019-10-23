@@ -11,21 +11,20 @@
 </div>
 {{#each data}}
 <div id="container3" data-id="{{this.id}}">
-<span>{{this.title}}</span><span>{{this.beschreibung}}</span><span>{{this.wichtigkeit}}</span>
-<p>{{this.fertigBis}}</p>
+    <span>{{this.fertigBis}}</span><span>{{this.title}}</span><div id="rating">{{#times this.wichtigkeit}}<span>&#9733;</span>{{/times}}</div>
+</div>
     {{#if this.erledigt}}
 <div id="container4">
-    <input type="checkbox" class="checkboxFinished" checked>Finished
-    <p id="beschreibung">Beschreibung</p>
-    <form action='/notes/edit' method='get'><button class="editButton">Edit</button></form>
+    <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished" checked>Finished</label>
+    <span id="beschreibung">{{this.beschreibung}}</span>
+    <form action='/notes/edit' method='get' id="editButton"><button class="editButton">Edit</button></form>
 </div>
     </div>
     {{else}}
         <div id="container4">
-            <input type="checkbox" class="checkboxFinished">Finished
-
-            <p id="beschreibung">Beschreibung</p>
-            <button class="editButton">Edit</button>
+            <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished">Finished</label>
+            <span id="beschreibung">{{this.beschreibung}}</span>
+            <form action='/notes/edit' method='get' id="editButton"><button class="editButton">Edit</button></form>
         </div>
         </div>
     {{/if}}

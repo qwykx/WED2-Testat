@@ -9,6 +9,12 @@ app.engine('hbs', hbs.express4({
     defaultLayout: 'views/layouts/default',
     layoutsDir: path.resolve('views/layouts/'),
 }));
+hbs.registerHelper('times', function(n, block) {
+    var accum = '';
+    for(var i = 0; i < n; ++i)
+        accum += block.fn(i);
+    return accum;
+});
 app.set('view engine', 'hbs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
