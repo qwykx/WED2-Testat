@@ -8,8 +8,13 @@ const app = express();
 app.engine('hbs', hbs.express4({
     defaultLayout: 'views/layouts/default',
     layoutsDir: path.resolve('views/layouts/'),
-    partialsDir: path.resolve('views/partials/')
 }));
+hbs.registerHelper('for', function(n, block) {
+    let counter = '';
+    for(let i = 0; i < n; i++)
+        counter += block.fn(i);
+    return counter;
+});
 app.set('view engine', 'hbs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
