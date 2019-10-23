@@ -18,14 +18,15 @@ export class NoteController {
     }
 
     async createNote(req, res){
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
+        let today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        const yyyy = today.getFullYear();
 
         today = yyyy + '-' + mm + '-' + dd;
         let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, today, req.body.erledigt);
-        await res.render("index", await noteStore.add(note));
+        await noteStore.add(note);
+        res.redirect('/');
     }
 
     async editNote(req, res) {
@@ -34,7 +35,8 @@ export class NoteController {
 
     async updateNote(req, res) {
         let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, req.body.erledigt);
-        await res.render("index", await noteStore.update(req.params.id, note));
+        await noteStore.delete(req.params.id);
+        res.redirect('/');
     }
 
     async deleteNote(req, res) {
