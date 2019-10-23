@@ -17,14 +17,14 @@
 <div id="container4">
     <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished" checked>Finished</label>
     <span id="beschreibung">{{this.beschreibung}}</span>
-    <form action='/notes/edit' method='get' id="editButton"><button class="editButton">Edit</button></form>
+    <form action='/notes/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
 </div>
     </div>
     {{else}}
         <div id="container4">
             <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished">Finished</label>
             <span id="beschreibung">{{this.beschreibung}}</span>
-            <form action='/notes/edit' method='get' id="editButton"><button class="editButton">Edit</button></form>
+            <form action='/notes/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
         </div>
         </div>
     {{/if}}
