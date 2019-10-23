@@ -1,13 +1,13 @@
 
 <div id="container1">
     <form action='/notes' method='get'><button type="submit" id="createButton">Create new Note</button></form>
-    <button id="styleSwitcher">Style Switcher</button>
+    <form action="" method="get"><button id="styleSwitcher" type="submit">Style Switcher</button></form>
 </div>
-<div id="conatainer2">
-    <form action='/sortedByDate' method='get'><button id="sortDate">By finish Date</button></form>
-    <form action='/sortedByCreateDate' method='get'><button id="sortCreated">By Create Date</button></form>
-    <form action='/sortedByRating' method='get'><button id="sortByImportance">By Importance</button></form>
-    <button id="hideFinsished">Hide finsihed</button>
+<div id="container2">
+    <form action='/sortedByDate' method='get'><button id="sortDate" type="submit">By finish Date</button></form>
+    <form action='/sortedByCreateDate' method='get'><button id="sortCreated" type="submit">By Create Date</button></form>
+    <form action='/sortedByRating' method='get'><button id="sortByImportance" type="submit">By Importance</button></form>
+    <form action="" method="get" id="hideFinsishedForm"><button id="hideFinsished" type="submit">Hide Finished</button></form>
 </div>
 {{#each data}}
 <div id="container3" data-id="{{this.id}}">
