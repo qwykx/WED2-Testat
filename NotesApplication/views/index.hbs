@@ -1,12 +1,12 @@
 
 <div id="container1">
-    <button id="createButton">Create new Note</button>
+    <form action='/notes' method='get'><button type="submit" id="createButton">Create new Note</button></form>
     <button id="styleSwitcher">Style Switcher</button>
 </div>
 <div id="conatainer2">
-    <button id="sortDate">By finish Date</button>
-    <button id="sortCreated">By Create Date</button>
-    <button id="sortByImportance">By Importance</button>
+    <form action='/sortedByDate' method='get'><button id="sortDate">By finish Date</button></form>
+    <form action='/sortedByCreateDate' method='get'><button id="sortCreated">By Create Date</button></form>
+    <form action='/sortedByRating' method='get'><button id="sortByImportance">By Importance</button></form>
     <button id="hideFinsished">Hide finsihed</button>
 </div>
 {{#each data}}
@@ -17,7 +17,7 @@
 <div id="container4">
     <input type="checkbox" class="checkboxFinished" checked>Finished
     <p id="beschreibung">Beschreibung</p>
-    <button class="editButton">Edit</button>
+    <form action='/notes/edit' method='get'><button class="editButton">Edit</button></form>
 </div>
     </div>
     {{else}}
