@@ -11,7 +11,7 @@
 </div>
 {{#each data}}
 <div id="container3" data-id="{{this.id}}">
-    <span>{{this.fertigBis}}</span><span>{{this.title}}</span><div id="rating">{{#times this.wichtigkeit}}<span>&#9733;</span>{{/times}}</div>
+    <span>{{this.fertigBis}}</span><span>{{this.title}}</span><div id="rating">{{#for this.wichtigkeit}}<span>&#9733;</span>{{/for}}</div>
 </div>
     {{#if this.erledigt}}
 <div id="container4">
