@@ -5,20 +5,20 @@
     </form>
 </div>
 <div id="container2">
-    <form method='get'>
+    <form action='/' method='POST'>
         <div class="btn-group">
-            <button id="sortDate" type="submit" formaction="/sortedByDate">By finish Date</button>
-            <button id="sortCreated" type="submit" formaction="/sortedByCreateDate">By Create Date</button>
-            <button id="sortByImportance" type="submit" formaction='/sortedByRating'>By Importance</button>
-            <button id="hideFinsished" type="submit" formaction="/hiddenFinished">Hide Finished</button>
+            <button id="sortDate" type="submit" value="By finish date {{#if_eq sortBy 'dueDate'}}{{#if_eq sortOrder 1}}&#x25B2{{else}}&#x25BC{{/if_eq}}{{/if_eq}}" {{#if_eq sortBy 'dueDate'}}class="activeFilter"{{/if_eq}}>By finish Date</button>
+            <button id="sortCreated" type="submit" value="By created date {{#if_eq sortBy 'createdDate'}}{{#if_eq sortOrder 1}}&#x25B2{{else}}&#x25BC{{/if_eq}}{{/if_eq}}" {{#if_eq sortBy 'createdDate'}}class="activeFilter"{{/if_eq}}>By Create Date</button>
+            <button id="sortByImportance" type="submit" value="By Importance {{#if_eq sortBy 'importance'}}{{#if_eq sortOrder 1}}&#x25B2{{else}}&#x25BC{{/if_eq}}{{/if_eq}}" {{#if_eq sortBy 'importance'}} class="activeFilter"{{/if_eq}}>By Importance</button>
+            <button type="submit" name="showFinished" value="{{#if_eq showFinished 'true'}}false{{else}}true{{/if_eq}}">HideFinsihed</button>
         </div>
     </form>
 </div>
-{{#each data}}
+{{#each notes}}
     <div id="container3" data-id="{{this.id}}">
         <span>{{this.fertigBis}}</span><span>{{this.title}}</span><div id="rating">{{#for this.wichtigkeit}}<span>&#9733;</span>{{/for}}</div>
     </div>
-    {{#if this.erledigt}}
+    {{#ifEquals this.state "FINISHED"}}
         <div id="container4">
             <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished" checked>Finished</label>
             <span id="beschreibung">{{this.beschreibung}}</span>
@@ -30,7 +30,7 @@
             <span id="beschreibung">{{this.beschreibung}}</span>
             <form action='/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
         </div>
-    {{/if}}
+    {{/ifEquals}}
 {{/each}}
 
 

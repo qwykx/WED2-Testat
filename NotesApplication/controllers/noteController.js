@@ -2,6 +2,26 @@ import {noteStore} from '../services/noteStore'
 import {Note} from '../services/noteStore'
 
 export class NoteController {
+    async setSessionParameters(session, query){
+        if(query.sorting){
+            session.sortOrder = session.sorting == query.sorting ? session.sortOrder * -1 : 1;
+            session.sorting = query.sorting;
+        }
+        if(query.showFinished){
+            session.showFinished = query.showFinished;
+        }
+
+        if(session.sorting == undefined){
+            session.sorting = 'dueDate';
+            session.sortOrder = 1;
+        }
+
+
+        if(session.showFinished == undefined){
+            session.showFinished = 'true';
+        }
+    }
+
     getFormattedDate() {
         let today = new Date();
         const dd = String(today.getDate()).padStart(2, '0');
@@ -11,22 +31,33 @@ export class NoteController {
         return yyyy + '-' + mm + '-' + dd;
     }
 
-    async showIndex(req, res) {
-
-        try {
-            const result = await noteStore.all();
-            res.render("index", {data: result});
-        } catch (error) {
-            console.error(`Controller Error-Message: ${error}`);
-        }
+    async all(req, res) {
+        const result = await noteStore.all(req.session.sorting, req.session.sortOrder, req.session.showFinished);
+            res.format({
+                'text/html': function(){
+                    res.render("index", {
+                        notes: result,
+                        sortBy:req.session.sorting,
+                        showFinished:req.session.showFinished,
+                        sortOrder: req.session.sortOrder,
+                    });
+                },
+                'application/json': function(){
+                    res.send({});
+                }
+            });
     }
 
-    showCreate(req, res) {
+    async showCreate(req, res) {
         res.render("createNote");
     }
 
     async createNote(req, res){
-        let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, this.getFormattedDate(), req.body.erledigt);
+        let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, this.getFormattedDate(),"unknown");
+        if(req.body.erledigt != undefined) {
+            note.state = 'FINISHED';
+            await noteStore.add(note);
+        }
         await noteStore.add(note);
         res.redirect('/');
     }
@@ -36,8 +67,12 @@ export class NoteController {
     }
 
     async updateNote(req, res) {
-        let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, this.getFormattedDate(), req.body.erledigt);
-        await noteStore.update(req.params.id, note)
+        let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, this.getFormattedDate(), "unknown");
+        if(req.body.erledigt != undefined) {
+            note.state = 'FINISHED';
+            await noteStore.update(req.params.id, note);
+        }
+        await noteStore.update(req.params.id, note);
         res.redirect('/');
     }
 
@@ -85,6 +120,7 @@ export class NoteController {
             console.error(`Controller Error-Message: ${error}`);
         }
     }
+
 
 }
 export const noteController = new NoteController();

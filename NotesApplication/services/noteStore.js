@@ -1,13 +1,14 @@
 import Datastore from 'nedb-promise';
 
 export class Note {
-    constructor(title, beschreibung, wichtigkeit, fertigBis, erstelltAm, erledigt) {
+    constructor(title, beschreibung, wichtigkeit, fertigBis, erstelltAm, orderedBy) {
         this.title = title;
         this.beschreibung = beschreibung;
         this.wichtigkeit = wichtigkeit;
         this.fertigBis = fertigBis;
         this.erstelltAm = erstelltAm;
-        this.erledigt = erledigt;
+        this.orderedBy = orderedBy;
+        this.state = "NEW";
     }
 }
 
@@ -26,7 +27,7 @@ export class NoteStore{
     }
 
     async delete(id) {
-        await this.db.update({_id: id}, {$set: {"erledigt": "on"}});
+        await this.db.update({_id: id}, {$set: {"state": "DELETED"}});
         return await this.get(id);
     }
 
@@ -40,8 +41,14 @@ export class NoteStore{
         });
     }
 
-    async all() {
-        return await this.db.find({});
+    async all(sort, sortOrder, show) {
+        if(show === 'false') {
+            return await this.db.find({$not: {$or: [{state: 'FINISHED'}, {state:'DELETED'}]}});
+        }
+        else{
+            return await this.db.find({$not: {state:'DELETED'}});
+        }
+
     }
 
     async getSortedByDate(){

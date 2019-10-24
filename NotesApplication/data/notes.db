@@ -1,5 +1,3 @@
-{"title":"test6","beschreibung":"test6","wichtigkeit":"5","fertigBis":"2019-10-01","erstelltAm":"2019-10-23","erledigt":"on","_id":"2oRmcfwIdz7rXw0P"}
-{"title":"test7","beschreibung":"test7","wichtigkeit":"2","fertigBis":"2019-09-01","erstelltAm":"2019-10-23","erledigt":"on","_id":"3z6rWpcBtsYJnwYC"}
-{"title":"test1","beschreibung":"Test1","wichtigkeit":"5","fertigBis":"2019-11-01","erstelltAm":"2019-10-23","erledigt":"on","_id":"d77bYQD6CF5hOu1P"}
-{"title":"test2","beschreibung":"test2","wichtigkeit":"4","fertigBis":"2019-12-01","erstelltAm":"2019-10-23","erledigt":"on","_id":"pbMmAPKGgjIlMbkN"}
-{"title":"test3","beschreibung":"test3","wichtigkeit":"3","fertigBis":"2019-12-23","erstelltAm":"2019-10-23","_id":"rL0enwxwiw4ZfWGz"}
+{"title":"test1","beschreibung":"Test1","wichtigkeit":"5","fertigBis":"2019-12-01","erstelltAm":"2019-10-24","orderedBy":"unknown","state":"FINISHED","_id":"8H4Z4TaQQzoCTAuM"}
+{"title":"test1","beschreibung":"Test1","wichtigkeit":"5","fertigBis":"2019-12-01","erstelltAm":"2019-10-24","orderedBy":"unknown","state":"FINISHED","_id":"WGPOa4fFbN9grWsO"}
+{"title":"test2","beschreibung":"test2","wichtigkeit":"4","fertigBis":"2019-10-25","erstelltAm":"2019-10-24","orderedBy":"unknown","state":"NEW","_id":"oA0J0IfvozqzVj2S"}
