@@ -1,6 +1,6 @@
 <div id="container1">
     <form method='get'>
-        <button type="submit" id="createButton" formaction="/notes">Create new Note</button></form>
+        <button type="submit" id="createButton" formaction="/new">Create new Note</button></form>
         <button id="styleSwitcher" type="submit" formaction="">Style Switcher</button>
     </form>
 </div>
@@ -22,13 +22,13 @@
         <div id="container4">
             <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished" checked>Finished</label>
             <span id="beschreibung">{{this.beschreibung}}</span>
-            <form action='/notes/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
+            <form action='/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
         </div>
     {{else}}
         <div id="container4">
             <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished">Finished</label>
             <span id="beschreibung">{{this.beschreibung}}</span>
-            <form action='/notes/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
+            <form action='/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
         </div>
     {{/if}}
 {{/each}}
