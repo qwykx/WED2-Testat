@@ -7,7 +7,7 @@ import {noteRoutes} from './routes/noteRoutes';
 
 const app = express();
 app.engine('hbs', hbs.express4({
-    defaultLayout: 'views/layouts/default',
+    defaultLayout: 'views/layouts/default.hbs',
     layoutsDir: path.resolve('views/layouts/'),
 }));
 hbs.registerHelper('for', function(n, block) {

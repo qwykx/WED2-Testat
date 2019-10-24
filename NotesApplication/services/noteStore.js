@@ -26,7 +26,7 @@ export class NoteStore{
     }
 
     async delete(id) {
-        await this.db.update({_id: id}, {$set: {"erledigt": true}});
+        await this.db.update({_id: id}, {$set: {"erledigt": "on"}});
         return await this.get(id);
     }
 
@@ -74,8 +74,6 @@ export class NoteStore{
         return result;
     }
 
-
-
     async getSortedByRating(){
 
         let result = await this.db.find({});
@@ -91,6 +89,10 @@ export class NoteStore{
         result.sort( compare );
         return result;
 
+    }
+
+    async getNotFinished(){
+        return await this.db.find({ $not: {erledigt:"on"}});
     }
 }
 

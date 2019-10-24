@@ -1,16 +1,11 @@
 <h1>Todo ändern</h1>
 
-{{#if title}}
     <form action="/notes/edit/{{_id}}/" method="post">
-        <label for="title">Title</label><input type="text" name="title" id="title" value="{{title}}">
-        <label for="beschreibung">Beschreibung</label><textarea name="beschreibung" id="beschreibung">{{beschreibung}}</textarea>
-        <label for="wichtigkeit">Wichtigkeit</label><input type="number" name="wichtigkeit" id="wichtigkeit" value="{{wichtigkeit}}">
-        <label for="fertigBis">Fertig bis</label><input type="date" name="fertigBis" id="fertigBis" value="{{fertigBis}}">
-        <div class="switch">
-            <input class="switch-checkbox" type="checkbox" name="erledigt" id="check" checked="{{erledigt}}">
-            <label class="switch-label" for="check" name="check">Erledigt</label>
-        </div>
+        <label>Title <input type="text" name="title" value="{{title}}"></label>
+        <label>Beschreibung <textarea name="beschreibung">{{beschreibung}}</textarea></label>
+        <label>Wichtigkeit <input type="number" name="wichtigkeit" value="{{wichtigkeit}}"></label>
+        <label>Fertig bis <input type="date" name="fertigBis" value="{{fertigBis}}"></label>
+        <label><input type="checkbox" name="erledigt" {{#if erledigt}}checked{{else}}{{/if}}> Erledigt</label>
         <button type="submit">Aktualisieren</button><button type="reset">Abbruch</button>
     </form>
-{{/if}}
 

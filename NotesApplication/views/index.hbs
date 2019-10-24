@@ -1,31 +1,34 @@
-
 <div id="container1">
-    <form action='/notes' method='get'><button type="submit" id="createButton">Create new Note</button></form>
-    <form action="" method="get"><button id="styleSwitcher" type="submit">Style Switcher</button></form>
+    <form method='get'>
+        <button type="submit" id="createButton" formaction="/notes">Create new Note</button></form>
+        <button id="styleSwitcher" type="submit" formaction="">Style Switcher</button>
+    </form>
 </div>
 <div id="container2">
-    <form action='/sortedByDate' method='get'><button id="sortDate" type="submit">By finish Date</button></form>
-    <form action='/sortedByCreateDate' method='get'><button id="sortCreated" type="submit">By Create Date</button></form>
-    <form action='/sortedByRating' method='get'><button id="sortByImportance" type="submit">By Importance</button></form>
-    <form action="" method="get" id="hideFinsishedForm"><button id="hideFinsished" type="submit">Hide Finished</button></form>
+    <form method='get'>
+        <div class="btn-group">
+            <button id="sortDate" type="submit" formaction="/sortedByDate">By finish Date</button>
+            <button id="sortCreated" type="submit" formaction="/sortedByCreateDate">By Create Date</button>
+            <button id="sortByImportance" type="submit" formaction='/sortedByRating'>By Importance</button>
+            <button id="hideFinsished" type="submit" formaction="/hiddenFinished">Hide Finished</button>
+        </div>
+    </form>
 </div>
 {{#each data}}
-<div id="container3" data-id="{{this.id}}">
-    <span>{{this.fertigBis}}</span><span>{{this.title}}</span><div id="rating">{{#for this.wichtigkeit}}<span>&#9733;</span>{{/for}}</div>
-</div>
-    {{#if this.erledigt}}
-<div id="container4">
-    <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished" checked>Finished</label>
-    <span id="beschreibung">{{this.beschreibung}}</span>
-    <form action='/notes/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
-</div>
+    <div id="container3" data-id="{{this.id}}">
+        <span>{{this.fertigBis}}</span><span>{{this.title}}</span><div id="rating">{{#for this.wichtigkeit}}<span>&#9733;</span>{{/for}}</div>
     </div>
+    {{#if this.erledigt}}
+        <div id="container4">
+            <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished" checked>Finished</label>
+            <span id="beschreibung">{{this.beschreibung}}</span>
+            <form action='/notes/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
+        </div>
     {{else}}
         <div id="container4">
             <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished">Finished</label>
             <span id="beschreibung">{{this.beschreibung}}</span>
             <form action='/notes/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
-        </div>
         </div>
     {{/if}}
 {{/each}}
