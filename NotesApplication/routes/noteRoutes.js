@@ -13,5 +13,6 @@ router.post("/notes/delete/:id/", noteController.deleteNote.bind(noteController)
 router.get("/sortedByDate", noteController.showSortedByDate.bind(noteController));
 router.get("/sortedByRating", noteController.showSortedByRating.bind(noteController));
 router.get("/sortedByCreateDate", noteController.showSortedByCreateDate.bind(noteController));
+router.get("/hiddenFinished", noteController.showNotFinished.bind(noteController));
 
 export const noteRoutes = router;

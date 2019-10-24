@@ -2,6 +2,14 @@ import {noteStore} from '../services/noteStore'
 import {Note} from '../services/noteStore'
 
 export class NoteController {
+    getFormattedDate() {
+        let today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        const yyyy = today.getFullYear();
+
+        return yyyy + '-' + mm + '-' + dd;
+    }
 
     async showIndex(req, res) {
 
@@ -18,13 +26,7 @@ export class NoteController {
     }
 
     async createNote(req, res){
-        let today = new Date();
-        const dd = String(today.getDate()).padStart(2, '0');
-        const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        const yyyy = today.getFullYear();
-
-        today = yyyy + '-' + mm + '-' + dd;
-        let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, today, req.body.erledigt);
+        let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, this.getFormattedDate(), req.body.erledigt);
         await noteStore.add(note);
         res.redirect('/');
     }
@@ -34,8 +36,8 @@ export class NoteController {
     }
 
     async updateNote(req, res) {
-        let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, req.body.erledigt);
-        await noteStore.delete(req.params.id);
+        let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, this.getFormattedDate(), req.body.erledigt);
+        await noteStore.update(req.params.id, note)
         res.redirect('/');
     }
 
@@ -74,6 +76,14 @@ export class NoteController {
             console.error(`Controller Error-Message: ${error}`);
         }
 
+    }
+
+    async showNotFinished(req, res) {
+        try {
+            res.render("index", {data: await noteStore.getNotFinished()});
+        } catch (error) {
+            console.error(`Controller Error-Message: ${error}`);
+        }
     }
 
 }

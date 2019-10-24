@@ -5,7 +5,7 @@
         <label>Beschreibung <textarea name="beschreibung">{{beschreibung}}</textarea></label>
         <label>Wichtigkeit <input type="number" name="wichtigkeit" value="{{wichtigkeit}}"></label>
         <label>Fertig bis <input type="date" name="fertigBis" value="{{fertigBis}}"></label>
-        <label><input type="checkbox" name="erledigt" checked="{{erledigt}}"> Erledigt</label>
+        <label><input type="checkbox" name="erledigt" {{#if erledigt}}checked{{else}}{{/if}}> Erledigt</label>
         <button type="submit">Aktualisieren</button><button type="reset">Abbruch</button>
     </form>
 

@@ -1,6 +1,8 @@
 <div id="container1">
-    <form action='/notes' method='get'><button type="submit" id="createButton">Create new Note</button></form>
-    <form action="" method="get"><button id="styleSwitcher" type="submit">Style Switcher</button></form>
+    <form method='get'>
+        <button type="submit" id="createButton" formaction="/notes">Create new Note</button></form>
+        <button id="styleSwitcher" type="submit" formaction="">Style Switcher</button>
+    </form>
 </div>
 <div id="container2">
     <form method='get'>
@@ -8,7 +10,7 @@
             <button id="sortDate" type="submit" formaction="/sortedByDate">By finish Date</button>
             <button id="sortCreated" type="submit" formaction="/sortedByCreateDate">By Create Date</button>
             <button id="sortByImportance" type="submit" formaction='/sortedByRating'>By Importance</button>
-            <button id="hideFinsished" type="submit">Hide Finished</button>
+            <button id="hideFinsished" type="submit" formaction="/hiddenFinished">Hide Finished</button>
         </div>
     </form>
 </div>
