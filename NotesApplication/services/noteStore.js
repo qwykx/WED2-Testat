@@ -43,10 +43,10 @@ export class NoteStore{
 
     async all(sort, sortOrder, show) {
         if(show === 'false') {
-            return await this.db.find({$not: {$or: [{state: 'FINISHED'}, {state:'DELETED'}]}});
+            return await this.db.find({$not: {$or: [{state: 'FINISHED'}, {state:'DELETED'}]}}).sort({[sort]: sortOrder});
         }
         else{
-            return await this.db.find({$not: {state:'DELETED'}});
+            return await this.db.find({$not: {state:'DELETED'}}).sort({[sort]: sortOrder});
         }
 
     }
