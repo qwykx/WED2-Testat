@@ -1,13 +1,12 @@
 import Datastore from 'nedb-promise';
 
 export class Note {
-    constructor(title, beschreibung, wichtigkeit, fertigBis, erstelltAm, orderedBy) {
+    constructor(title, beschreibung, wichtigkeit, fertigBis, erstelltAm) {
         this.title = title;
         this.beschreibung = beschreibung;
         this.wichtigkeit = wichtigkeit;
         this.fertigBis = fertigBis;
         this.erstelltAm = erstelltAm;
-        this.orderedBy = orderedBy;
         this.state = "NEW";
     }
 }
@@ -46,20 +45,36 @@ export class NoteStore{
             var result = await this.db.find({$not: {$or: [{state: 'FINISHED'}, {state:'DELETED'}]}});
 
             if(sort === 'dueDate'){
-
-                result.sort(this.compareByFinishDate);
-                return result
-
+                if(sortOrder === 1) {
+                    result.sort(this.compareByFinishDate);
+                    return result
+                }
+                else{
+                    result.sort(this.compareByFinishDateDecrease);
+                    return result
+                }
             }
 
             else if(sort === 'createdDate'){
-                result.sort(this.compareByCreateDate);
-                return result
+                if(sortOrder === 1){
+                    result.sort(this.compareByCreateDate);
+                    return result
+                }
+                else{
+                    result.sort(this.compareByCreateDateDecrease);
+                    return result
+                }
             }
 
             else if(sort === 'importance'){
-                result.sort(this.compareByImportance);
-                return result
+                if(sortOrder === 1){
+                    result.sort(this.compareByImportance);
+                    return result
+                }
+                else{
+                    result.sort(this.compareByImportanceDecrease);
+                    return result
+                }
             }
 
             return result;
@@ -68,23 +83,36 @@ export class NoteStore{
             var result = await this.db.find({$not: {state:'DELETED'}});
 
             if(sort === 'dueDate'){
-
-                result.sort(this.compareByFinishDate);
-                return result
-
+                if(sortOrder === 1) {
+                    result.sort(this.compareByFinishDate);
+                    return result
+                }
+                else{
+                    result.sort(this.compareByFinishDateDecrease);
+                    return result
+                }
             }
 
             else if(sort === 'createdDate'){
-                result.sort(this.compareByCreateDate);
-                return result
+                if(sortOrder === 1){
+                    result.sort(this.compareByCreateDate);
+                    return result
+                }
+                else{
+                    result.sort(this.compareByCreateDateDecrease);
+                    return result
+                }
             }
-
             else if(sort === 'importance'){
-                result.sort(this.compareByImportance);
-                return result
+                if(sortOrder === 1){
+                    result.sort(this.compareByImportance);
+                    return result
+                }
+                else{
+                    result.sort(this.compareByImportanceDecrease);
+                    return result
+                }
             }
-
-
             return result
         }
 
@@ -100,6 +128,16 @@ export class NoteStore{
             return 0;
         }
 
+    compareByFinishDateDecrease( a, b ) {
+        if ( a.fertigBis < b.fertigBis){
+            return 1;
+        }
+        if ( a.fertigBis> b.fertigBis ){
+            return -1;
+        }
+        return 0;
+    }
+
 
         compareByCreateDate( a, b ) {
             if ( a.erstelltAm < b.erstelltAm){
@@ -111,6 +149,16 @@ export class NoteStore{
             return 0;
         }
 
+    compareByCreateDateDecrease( a, b ) {
+        if ( a.erstelltAm < b.erstelltAm){
+            return -1;
+        }
+        if ( a.erstelltAm> b.erstelltAm ){
+            return 1;
+        }
+        return 0;
+    }
+
         compareByImportance( a, b ) {
         if ( a.wichtigkeit < b.wichtigkeit){
             return 1;
@@ -121,25 +169,14 @@ export class NoteStore{
         return 0;
     }
 
-
-    async getSortedByRating(){
-
-        let result = await this.db.find({});
-        function compare( a, b ) {
-            if ( a.wichtigkeit < b.wichtigkeit){
-                return 1;
-            }
-            if ( a.wichtigkeit> b.wichtigkeit ){
-                return -1;
-            }
-            return 0;
+    compareByImportanceDecrease( a, b ) {
+        if ( a.wichtigkeit < b.wichtigkeit){
+            return -1;
         }
-        result.sort( compare );
-        return result;
-    }
-
-    async getNotFinished(){
-        return await this.db.find({ $not: {erledigt:"on"}});
+        if ( a.wichtigkeit> b.wichtigkeit ){
+            return 1;
+        }
+        return 0;
     }
 }
 

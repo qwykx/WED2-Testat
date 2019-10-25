@@ -5,3 +5,5 @@
 {"title":"test 6","beschreibung":"neue note zum testen","wichtigkeit":"2","fertigBis":"2018-01-02","erstelltAm":"2019-10-25","orderedBy":"unknown","state":"FINISHED","_id":"cyEhhRM1SCq3Yj0B"}
 {"title":"test2","beschreibung":"test2","wichtigkeit":"4","fertigBis":"2019-10-25","erstelltAm":"2019-10-24","orderedBy":"unknown","state":"NEW","_id":"oA0J0IfvozqzVj2S"}
 {"title":"test7","beschreibung":"dies ist eine testnotiz","wichtigkeit":"1","fertigBis":"2019-03-01","erstelltAm":"2019-10-25","orderedBy":"unknown","state":"NEW","_id":"rWdld05GDqHxJ5qG"}
+{"title":"test10","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2019-01-01","erstelltAm":"2019-10-25","state":"FINISHED","_id":"KFnf4PSDMLFFxgqt"}
+{"title":"test10","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2019-01-01","erstelltAm":"2019-10-25","state":"FINISHED","_id":"qOaBCd8Cxj3t7Y8r"}

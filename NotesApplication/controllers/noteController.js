@@ -10,27 +10,21 @@ export class NoteController {
         if(query.showFinished){
             session.showFinished = query.showFinished;
         }
-
         if(session.sorting == undefined){
             session.sorting = 'dueDate';
             session.sortOrder = 1;
         }
-
-
         if(session.showFinished == undefined){
             session.showFinished = 'true';
         }
     }
-
     getFormattedDate() {
         let today = new Date();
         const dd = String(today.getDate()).padStart(2, '0');
         const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         const yyyy = today.getFullYear();
-
         return yyyy + '-' + mm + '-' + dd;
     }
-
     async all(req, res) {
         const result = await noteStore.all(req.session.sorting, req.session.sortOrder, req.session.showFinished);
             res.format({
@@ -53,7 +47,7 @@ export class NoteController {
     }
 
     async createNote(req, res){
-        let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, this.getFormattedDate(),"unknown");
+        let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, this.getFormattedDate());
         if(req.body.erledigt != undefined) {
             note.state = 'FINISHED';
             await noteStore.add(note);
@@ -79,48 +73,5 @@ export class NoteController {
     async deleteNote(req, res) {
         await res.render("index", await noteStore.delete(req.params.id));
     }
-
-    async showSortedByDate(req, res){
-
-        try {
-            const result = await noteStore.getSortedByDate();
-            res.render("index", {data: result});
-        } catch (error) {
-            console.error(`Controller Error-Message: ${error}`);
-        }
-
-    }
-
-    async showSortedByCreateDate(req, res){
-
-        try {
-            const result = await noteStore.getSortedByCreateDate();
-            res.render("index", {data: result});
-        } catch (error) {
-            console.error(`Controller Error-Message: ${error}`);
-        }
-
-    }
-
-    async showSortedByRating(req, res){
-
-        try {
-            const result = await noteStore.getSortedByRating();
-            res.render("index", {data: result});
-        } catch (error) {
-            console.error(`Controller Error-Message: ${error}`);
-        }
-
-    }
-
-    async showNotFinished(req, res) {
-        try {
-            res.render("index", {data: await noteStore.getNotFinished()});
-        } catch (error) {
-            console.error(`Controller Error-Message: ${error}`);
-        }
-    }
-
-
 }
 export const noteController = new NoteController();
