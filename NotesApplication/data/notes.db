@@ -1,5 +1,9 @@
-{"title":"test6","beschreibung":"test6","wichtigkeit":"5","fertigBis":"2019-10-01","erstelltAm":"2019-10-23","erledigt":"on","_id":"2oRmcfwIdz7rXw0P"}
-{"title":"test7","beschreibung":"test7","wichtigkeit":"2","fertigBis":"2019-09-01","erstelltAm":"2019-10-23","erledigt":"on","_id":"3z6rWpcBtsYJnwYC"}
-{"title":"test1","beschreibung":"Test1","wichtigkeit":"5","fertigBis":"2019-11-01","erstelltAm":"2019-10-23","erledigt":"on","_id":"d77bYQD6CF5hOu1P"}
-{"title":"test2","beschreibung":"test2","wichtigkeit":"4","fertigBis":"2019-12-01","erstelltAm":"2019-10-23","erledigt":"on","_id":"pbMmAPKGgjIlMbkN"}
-{"title":"test3","beschreibung":"test3","wichtigkeit":"3","fertigBis":"2019-12-23","erstelltAm":"2019-10-23","_id":"rL0enwxwiw4ZfWGz"}
+{"title":"test1","beschreibung":"Test1","wichtigkeit":"5","fertigBis":"2019-12-01","erstelltAm":"2019-10-24","orderedBy":"unknown","state":"FINISHED","_id":"8H4Z4TaQQzoCTAuM"}
+{"title":"test10","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2019-01-01","erstelltAm":"2019-10-25","state":"FINISHED","_id":"KFnf4PSDMLFFxgqt"}
+{"title":"test1","beschreibung":"Test1","wichtigkeit":"5","fertigBis":"2019-12-01","erstelltAm":"2019-10-24","orderedBy":"unknown","state":"FINISHED","_id":"WGPOa4fFbN9grWsO"}
+{"title":"test8","beschreibung":"dies ist eine Testnotiz","wichtigkeit":"5","fertigBis":"2019-12-12","erstelltAm":"2019-10-25","orderedBy":"unknown","state":"NEW","_id":"bOUUsETS2NjaX81V"}
+{"title":"test 6","beschreibung":"neue note zum testen","wichtigkeit":"2","fertigBis":"2018-01-02","erstelltAm":"2019-10-25","orderedBy":"unknown","state":"FINISHED","_id":"cvzfW38wqBaTXGkL"}
+{"title":"test 6","beschreibung":"neue note zum testen","wichtigkeit":"2","fertigBis":"2018-01-02","erstelltAm":"2019-10-25","orderedBy":"unknown","state":"FINISHED","_id":"cyEhhRM1SCq3Yj0B"}
+{"title":"test2","beschreibung":"test2","wichtigkeit":"4","fertigBis":"2019-10-25","erstelltAm":"2019-10-24","orderedBy":"unknown","state":"NEW","_id":"oA0J0IfvozqzVj2S"}
+{"title":"test10","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2019-01-01","erstelltAm":"2019-10-25","state":"FINISHED","_id":"qOaBCd8Cxj3t7Y8r"}
+{"title":"test7","beschreibung":"dies ist eine testnotiz","wichtigkeit":"1","fertigBis":"2019-03-01","erstelltAm":"2019-10-25","orderedBy":"unknown","state":"NEW","_id":"rWdld05GDqHxJ5qG"}
