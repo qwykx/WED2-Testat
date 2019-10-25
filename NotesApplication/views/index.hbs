@@ -5,24 +5,22 @@
     </form>
 </div>
 <div id="container2">
-        <div class="btn-group">
             <form action='/' method='POST'>
-                <input type="hidden" name="sorting" value="dueDate" />
-                <input type="submit" value="By finish date {{#if_eq sortBy 'dueDate'}}{{#if_eq sortOrder 1}}&#x25B2{{else}}&#x25BC{{/if_eq}}{{/if_eq}}" {{#if_eq sortBy 'dueDate'}}class="activeFilter"{{/if_eq}} />
+                <input class="formButton" type="hidden" name="sorting" value="dueDate"/>
+                <input class="formButton" type="submit" value="By finish date {{#if_eq sortBy 'dueDate'}}{{#if_eq sortOrder 1}}&#x25B2{{else}}&#x25BC{{/if_eq}}{{/if_eq}}" {{#if_eq sortBy 'dueDate'}}{{/if_eq}} />
             </form>
             <form action='/' method='POST'>
-                <input type="hidden" name="sorting" value="createdDate" />
-                <input type="submit" value="By created date {{#if_eq sortBy 'createdDate'}}{{#if_eq sortOrder 1}}&#x25B2{{else}}&#x25BC{{/if_eq}}{{/if_eq}}" {{#if_eq sortBy 'createdDate'}}class="activeFilter"{{/if_eq}} />
+                <input class="formButton" type="hidden" name="sorting" value="createdDate"/>
+                <input class="formButton" type="submit" value="By created date {{#if_eq sortBy 'createdDate'}}{{#if_eq sortOrder 1}}&#x25B2{{else}}&#x25BC{{/if_eq}}{{/if_eq}}" {{#if_eq sortBy 'createdDate'}}{{/if_eq}} />
             </form>
             <form action='/' method='POST'>
-                <input type="hidden" name="sorting" value="importance" />
-                <input type="submit" value="By Importance {{#if_eq sortBy 'importance'}}{{#if_eq sortOrder 1}}&#x25B2{{else}}&#x25BC{{/if_eq}}{{/if_eq}}" {{#if_eq sortBy 'importance'}} class="activeFilter"{{/if_eq}} />
+                <input class="formButton" type="hidden" name="sorting" value="importance"/>
+                <input class="formButton" type="submit" value="By Importance {{#if_eq sortBy 'importance'}}{{#if_eq sortOrder 1}}&#x25B2{{else}}&#x25BC{{/if_eq}}{{/if_eq}}" {{#if_eq sortBy 'importance'}}{{/if_eq}} />
             </form>
-            <form action='/' method='POST'>
-                <input type="hidden" name="showFinished" value="{{#if_eq showFinished 'true'}}false{{else}}true{{/if_eq}}" />
-                <input type="submit" value="Show Finished" {{#if_eq showFinished 'true'}} class="activeFilter"{{/if_eq}} />
+            <form action='/' method='POST' id="hideFinsished">
+                <input class="formButton" type="hidden" name="showFinished" value="{{#if_eq showFinished 'true'}}false{{else}}true{{/if_eq}}"/>
+                <input class="formButton" type="submit" value="Show Finished" {{#if_eq showFinished 'true'}}{{/if_eq}} />
             </form>
-        </div>
 </div>
 {{#each notes}}
     <div id="container3" data-id="{{this.id}}">

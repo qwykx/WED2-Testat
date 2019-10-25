@@ -43,7 +43,6 @@ export class NoteStore{
     async all(sort, sortOrder, show) {
         if(show === 'false') {
             var result = await this.db.find({$not: {$or: [{state: 'FINISHED'}, {state:'DELETED'}]}});
-
             if(sort === 'dueDate'){
                 if(sortOrder === 1) {
                     result.sort(this.compareByFinishDate);
@@ -54,7 +53,6 @@ export class NoteStore{
                     return result
                 }
             }
-
             else if(sort === 'createdDate'){
                 if(sortOrder === 1){
                     result.sort(this.compareByCreateDate);
@@ -117,8 +115,7 @@ export class NoteStore{
         }
 
     }
-
-        compareByFinishDate( a, b ) {
+    compareByFinishDate( a, b ) {
             if ( a.fertigBis < b.fertigBis){
                 return -1;
             }
@@ -127,7 +124,6 @@ export class NoteStore{
             }
             return 0;
         }
-
     compareByFinishDateDecrease( a, b ) {
         if ( a.fertigBis < b.fertigBis){
             return 1;
@@ -137,9 +133,7 @@ export class NoteStore{
         }
         return 0;
     }
-
-
-        compareByCreateDate( a, b ) {
+    compareByCreateDate( a, b ) {
             if ( a.erstelltAm < b.erstelltAm){
                 return -1;
             }
@@ -148,17 +142,15 @@ export class NoteStore{
             }
             return 0;
         }
-
     compareByCreateDateDecrease( a, b ) {
         if ( a.erstelltAm < b.erstelltAm){
-            return -1;
+            return 1;
         }
         if ( a.erstelltAm> b.erstelltAm ){
-            return 1;
+            return -1;
         }
         return 0;
     }
-
         compareByImportance( a, b ) {
         if ( a.wichtigkeit < b.wichtigkeit){
             return 1;
@@ -168,7 +160,6 @@ export class NoteStore{
         }
         return 0;
     }
-
     compareByImportanceDecrease( a, b ) {
         if ( a.wichtigkeit < b.wichtigkeit){
             return -1;

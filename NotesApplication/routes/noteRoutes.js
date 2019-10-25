@@ -8,7 +8,6 @@ router.post('/', function(req, res) {
 });
 
 router.get('/', function(req, res) {
-    console.log("GET /notes");
     noteController.setSessionParameters(req.session, req.body);
     noteController.all(req, res);
 });
