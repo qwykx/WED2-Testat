@@ -43,17 +43,54 @@ export class NoteStore{
 
     async all(sort, sortOrder, show) {
         if(show === 'false') {
-            return await this.db.find({$not: {$or: [{state: 'FINISHED'}, {state:'DELETED'}]}}).sort({[sort]: sortOrder});
+            var result = await this.db.find({$not: {$or: [{state: 'FINISHED'}, {state:'DELETED'}]}});
+
+            if(sort === 'dueDate'){
+
+                result.sort(this.compareByFinishDate);
+                return result
+
+            }
+
+            else if(sort === 'createdDate'){
+                result.sort(this.compareByCreateDate);
+                return result
+            }
+
+            else if(sort === 'importance'){
+                result.sort(this.compareByImportance);
+                return result
+            }
+
+            return result;
         }
         else{
-            return await this.db.find({$not: {state:'DELETED'}}).sort({[sort]: sortOrder});
+            var result = await this.db.find({$not: {state:'DELETED'}});
+
+            if(sort === 'dueDate'){
+
+                result.sort(this.compareByFinishDate);
+                return result
+
+            }
+
+            else if(sort === 'createdDate'){
+                result.sort(this.compareByCreateDate);
+                return result
+            }
+
+            else if(sort === 'importance'){
+                result.sort(this.compareByImportance);
+                return result
+            }
+
+
+            return result
         }
 
     }
 
-    async getSortedByDate(){
-        let result = await this.db.find({});
-        function compare( a, b ) {
+        compareByFinishDate( a, b ) {
             if ( a.fertigBis < b.fertigBis){
                 return -1;
             }
@@ -62,13 +99,9 @@ export class NoteStore{
             }
             return 0;
         }
-        result.sort( compare );
-        return result;
-    }
 
-    async getSortedByCreateDate(){
-        let result = await this.db.find({});
-        function compare( a, b ) {
+
+        compareByCreateDate( a, b ) {
             if ( a.erstelltAm < b.erstelltAm){
                 return -1;
             }
@@ -77,9 +110,17 @@ export class NoteStore{
             }
             return 0;
         }
-        result.sort( compare );
-        return result;
+
+        compareByImportance( a, b ) {
+        if ( a.wichtigkeit < b.wichtigkeit){
+            return 1;
+        }
+        if ( a.wichtigkeit> b.wichtigkeit ){
+            return -1;
+        }
+        return 0;
     }
+
 
     async getSortedByRating(){
 
@@ -95,7 +136,6 @@ export class NoteStore{
         }
         result.sort( compare );
         return result;
-
     }
 
     async getNotFinished(){
