@@ -10,6 +10,9 @@ export class NoteController {
         if(query.showFinished){
             session.showFinished = query.showFinished;
         }
+        if(query.styleSwitcher){
+            session.style = query.styleSwitcher;
+        }
         if(session.sorting == undefined){
             session.sorting = 'dueDate';
             session.sortOrder = 1;
@@ -27,6 +30,7 @@ export class NoteController {
     }
     async all(req, res) {
         const result = await noteStore.all(req.session.sorting, req.session.sortOrder, req.session.showFinished);
+
             res.format({
                 'text/html': function(){
                     res.render("index", {
@@ -34,6 +38,7 @@ export class NoteController {
                         sortBy:req.session.sorting,
                         showFinished:req.session.showFinished,
                         sortOrder: req.session.sortOrder,
+                        styleSwitch: req.session.style
                     });
                 },
                 'application/json': function(){
@@ -43,7 +48,9 @@ export class NoteController {
     }
 
     async showCreate(req, res) {
-        res.render("createNote");
+        res.render("createNote", {
+            styleSwitch: req.session.style
+        });
     }
 
     async createNote(req, res){
@@ -57,7 +64,11 @@ export class NoteController {
     }
 
     async editNote(req, res) {
-        await res.render("editNote", await noteStore.get(req.params.id));
+        const note = await noteStore.get(req.params.id);
+        await res.render("editNote", {
+            note: note,
+            styleSwitch: req.session.style
+        });
     }
 
     async updateNote(req, res) {
