@@ -30,24 +30,11 @@ hbs.registerHelper('for', function(n, block) {
         counter += block.fn(i);
     return counter;
 });
-hbs.registerHelper('set_checked', function(n, importance,_id, block) {
-    return setImportance(n, importance,_id, block, 'checked', '/>');
-});
-
-hbs.registerHelper('set_selected', function(n, importance,_id, block) {
-    return setImportance(n, importance,_id, block, 'selected', '>');
-});
 
 hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
 
-hbs.registerHelper('if_eq', function(a, b, opts) {
-    if (a === b) {
-        return opts.fn(this);
-    }
-    return opts.inverse(this);
-});
 app.set('view engine', 'hbs');
 app.use(session({secret: 'sadkjlfasdlkfjlasödfjadl', resave: false, saveUninitialized: true}));
 

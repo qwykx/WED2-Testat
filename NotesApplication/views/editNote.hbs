@@ -1,11 +1,12 @@
+<div class="{{#ifEquals styleSwitch 'true'}}darkmode{{/ifEquals}}">
 <h1>Todo ändern</h1>
-
-    <form action="/edit/{{_id}}/" method="post">
-        <label>Title <input type="text" name="title" value="{{title}}"></label>
-        <label>Beschreibung <textarea name="beschreibung">{{beschreibung}}</textarea></label>
-        <label>Wichtigkeit <input type="number" name="wichtigkeit" value="{{wichtigkeit}}"></label>
-        <label>Fertig bis <input type="date" name="fertigBis" value="{{fertigBis}}"></label>
+<form action="/edit/{{note._id}}/" method="post">
+        <label>Title <input type="text" name="title" value="{{note.title}}"></label>
+        <label>Beschreibung <textarea name="beschreibung">{{note.beschreibung}}</textarea></label>
+        <label>Wichtigkeit <input type="number" name="wichtigkeit" value="{{note.wichtigkeit}}"></label>
+        <label>Fertig bis <input type="date" name="fertigBis" value="{{note.fertigBis}}"></label>
         <label><input type="checkbox" name="erledigt" {{#if erledigt}}checked{{else}}{{/if}}> Erledigt</label>
         <button type="submit">Aktualisieren</button><button type="reset">Abbruch</button>
-    </form>
+</form>
+</div>
 
