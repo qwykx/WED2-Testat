@@ -1,7 +1,4 @@
-[data-theme="dark"]{
-    background-color: black;
-    color: white;
-}
+
 
 input[type="text"],input[type="date"], input[type="number"], textarea, select {
     width: 100%;
@@ -125,6 +122,13 @@ button:active, button:hover{
 
     input[type=submit], #createNew{
         width: 100%;
+    }
+
+    #beschreibung{
+
+        display: block;
+        padding-bottom: 10%;
+
     }
 
 

@@ -33,13 +33,13 @@
     </div>
     {{#ifEquals this.state "FINISHED"}}
         <div class="container4">
-            <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished" checked>Finished</label>
+            <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished" disabled="disabled" checked>Finished</label>
             <span id="beschreibung">{{this.beschreibung}}</span>
             <form action='/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
         </div>
     {{else}}
         <div class="container4">
-            <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished">Finished</label>
+            <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished" disabled="disabled">Finished</label>
             <span id="beschreibung">{{this.beschreibung}}</span>
             <form action='/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
         </div>
