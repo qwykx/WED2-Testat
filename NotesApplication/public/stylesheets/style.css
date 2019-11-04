@@ -79,14 +79,18 @@ button:active, button:hover{
 #container1{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 #container2{
     display:flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
+
 #hideFinsished{
     align-self: flex-end;
     margin-left: auto;
+    flex-wrap: wrap;
 }
 
 .container3{
@@ -110,6 +114,21 @@ button:active, button:hover{
 .darkmode{
     background-color: black;
     color: white;
+}
+
+@media (max-width: 33em){
+
+    #container1, #container2, .container4{
+        display: block;
+
+    }
+
+    input[type=submit], #createNew{
+        width: 100%;
+    }
+
+
+
 }
 
 

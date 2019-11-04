@@ -1,6 +1,6 @@
 <div id="container1" class="{{#ifEquals styleSwitch 'true'}}darkmode{{/ifEquals}}">
     <form method='get'>
-        <button type="submit" id="createButton" formaction="/new">Create new Note</button></form>
+        <button id="createNew" type="submit" id="createButton" formaction="/new">Create new Note</button></form>
     </form>
     <form action='/' method='POST'>
         <input class="formButton" type="hidden" name="styleSwitcher" value="{{#ifEquals styleSwitch 'true'}}false{{else}}true{{/ifEquals}}"/>
@@ -28,8 +28,8 @@
 <div class="{{#ifEquals styleSwitch 'true'}}darkmode{{/ifEquals}}">
     {{#if notes}}
 {{#each notes}}
-    <div class="container3" data-id="{{this.id}}">
-        <span>{{this.fertigBis}}</span><span>{{this.title}}</span><div id="rating">{{#for this.wichtigkeit}}<span>&#9733;</span>{{/for}}</div>
+    <div id= "container3" class="container3" data-id="{{this.id}}">
+        <span>{{this.fertigBis}}</span><span>Title: {{this.title}}</span><div id="rating">{{#for this.wichtigkeit}}<span>&#9733;</span>{{/for}}</div>
     </div>
     {{#ifEquals this.state "FINISHED"}}
         <div class="container4">
