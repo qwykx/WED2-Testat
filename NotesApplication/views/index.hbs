@@ -22,7 +22,7 @@
             </form>
             <form action='/' method='POST' id="hideFinsished">
                 <input class="formButton" type="hidden" name="showFinished" value="{{#ifEquals showFinished 'true'}}false{{else}}true{{/ifEquals}}"/>
-                <input class="formButton" type="submit" value="Show Finished" />
+                <input class="formButton" type="submit" value="{{#ifEquals showFinished 'true'}}Hide Finished{{else}}Show Finished{{/ifEquals}}" />
             </form>
 </div>
 <div class="{{#ifEquals styleSwitch 'true'}}darkmode{{/ifEquals}}">
