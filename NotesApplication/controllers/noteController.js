@@ -4,7 +4,7 @@ import {Note} from '../services/noteStore'
 export class NoteController {
     async setSessionParameters(session, query){
         if(query.sorting){
-            session.sortOrder = session.sorting == query.sorting ? session.sortOrder * -1 : 1;
+            session.sortOrder = session.sorting === query.sorting ? session.sortOrder * -1 : 1;
             session.sorting = query.sorting;
         }
         if(query.showFinished){
@@ -13,11 +13,11 @@ export class NoteController {
         if(query.styleSwitcher){
             session.style = query.styleSwitcher;
         }
-        if(session.sorting == undefined){
+        if(session.sorting === undefined){
             session.sorting = 'dueDate';
             session.sortOrder = 1;
         }
-        if(session.showFinished == undefined){
+        if(session.showFinished === undefined){
             session.showFinished = 'true';
         }
     }
@@ -55,7 +55,7 @@ export class NoteController {
 
     async createNote(req, res){
         let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, this.getFormattedDate());
-        if(req.body.erledigt != undefined) {
+        if(req.body.erledigt !== undefined) {
             note.state = 'FINISHED';
             await noteStore.add(note);
         }
@@ -73,7 +73,7 @@ export class NoteController {
 
     async updateNote(req, res) {
         let note = new Note(req.body.title, req.body.beschreibung, req.body.wichtigkeit, req.body.fertigBis, this.getFormattedDate(), "unknown");
-        if(req.body.erledigt != undefined) {
+        if(req.body.erledigt !== undefined) {
             note.state = 'FINISHED';
             await noteStore.update(req.params.id, note);
         }

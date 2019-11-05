@@ -1,4 +1,4 @@
-<div id="container1" class="{{#ifEquals styleSwitch 'true'}}darkmode{{/ifEquals}}">
+<div id="top-nav">
     <form method='get'>
         <button id="createNew" type="submit" id="createButton" formaction="/new">Create new Note</button></form>
     </form>
@@ -7,7 +7,7 @@
         <input class="formButton" type="submit" value="Style Switcher" />
     </form>
 </div>
-<div id="container2" class="{{#ifEquals styleSwitch 'true'}}darkmode{{/ifEquals}}">
+<div id="filter">
             <form action='/' method='POST'>
                 <input class="formButton" type="hidden" name="sorting" value="dueDate"/>
                 <input class="formButton" type="submit" value="By finish date {{#ifEquals sortBy 'dueDate'}}{{#ifEquals sortOrder 1}}&#x25B2{{else}}&#x25BC{{/ifEquals}}{{/ifEquals}}" {{#ifEquals sortBy 'dueDate'}}{{/ifEquals}} />
@@ -25,28 +25,28 @@
                 <input class="formButton" type="submit" value="{{#ifEquals showFinished 'true'}}Hide Finished{{else}}Show Finished{{/ifEquals}}" />
             </form>
 </div>
-<div class="{{#ifEquals styleSwitch 'true'}}darkmode{{/ifEquals}}">
+<div>
     {{#if notes}}
 {{#each notes}}
-    <div id= "container3" class="container3" data-id="{{this.id}}">
+    <div class="note-head" data-id="{{this.id}}">
         <span>{{this.fertigBis}}</span><span>Title: {{this.title}}</span><div id="rating">{{#for this.wichtigkeit}}<span>&#9733;</span>{{/for}}</div>
     </div>
     {{#ifEquals this.state "FINISHED"}}
-        <div class="container4">
-            <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished" disabled="disabled" checked>Finished</label>
-            <span id="beschreibung">{{this.beschreibung}}</span>
-            <form action='/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
+        <div class="note-body">
+            <label ><input type="checkbox" class="checkboxFinished" disabled checked>Finished</label>
+            <span class="beschreibung">{{this.beschreibung}}</span>
+            <form action='/edit/{{this._id}}' method='get' class="editButton"><button class="editButton">Edit</button></form>
         </div>
     {{else}}
-        <div class="container4">
-            <label for="finished"><input type="checkbox" class="checkboxFinished" id="finished" disabled="disabled">Finished</label>
-            <span id="beschreibung">{{this.beschreibung}}</span>
-            <form action='/edit/{{this._id}}' method='get' id="editButton"><button class="editButton">Edit</button></form>
+        <div class="note-body">
+            <label for="finished"><input type="checkbox" class="checkboxFinished" disabled>Finished</label>
+            <span class="beschreibung">{{this.beschreibung}}</span>
+            <form action='/edit/{{this._id}}' method='get' class="editButton"><button class="editButton">Edit</button></form>
         </div>
     {{/ifEquals}}
 {{/each}}
     {{else}}
-        <div class="{{#ifEquals styleSwitch 'true'}}darkmode{{/ifEquals}}">
+        <div>
         <p>Es sind noch keine Notizen vorhanden</p>
         </div>
     {{/if}}

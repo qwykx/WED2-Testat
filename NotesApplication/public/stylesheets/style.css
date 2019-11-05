@@ -1,4 +1,6 @@
-
+* {
+    font-family: Open Sans, sans-serif;
+}
 
 input[type="text"],input[type="date"], input[type="number"], textarea, select {
     width: 100%;
@@ -14,39 +16,6 @@ input[type="text"],input[type="date"], input[type="number"], textarea, select {
 input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .9);
     outline: none;
-}
-
-.switch {
-    position: relative; width: 90px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-}
-.switch-checkbox {
-    display: none;
-}
-.switch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    height: 30px; padding: 0; line-height: 30px;
-    border: 2px solid #999999; border-radius: 30px;
-    background-color: #EEEEEE;
-    transition: background-color 0.3s ease-in;
-}
-.switch-label:before {
-    content: "";
-    display: block; width: 30px; margin: 0px;
-    background: #FFFFFF;
-    position: absolute; top: 0; bottom: 0;
-    right: 58px;
-    border: 2px solid #999999; border-radius: 30px;
-    transition: all 0.3s ease-in 0s;
-}
-.switch-checkbox:checked + .switch-label {
-    background-color: #34C274;
-}
-.switch-checkbox:checked + .switch-label, .switch-checkbox:checked + .switch-label:before {
-    border-color: #34C274;
-}
-.switch-checkbox:checked + .switch-label:before {
-    right: 0px;
 }
 
 textarea {
@@ -73,12 +42,12 @@ button:active, button:hover{
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
-#container1{
+#top-nav{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-#container2{
+#filter{
     display:flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -90,32 +59,49 @@ button:active, button:hover{
     flex-wrap: wrap;
 }
 
-.container3{
+.note-head{
     display: grid;
     grid-template-columns: 25% 50% 25% 25%;
 }
 
-.container4{
+.note-body{
     display: grid;
     grid-template-columns: 25% 50% 25%;
 }
 
-#editButton{
+.editButton{
     margin-left: auto;
 }
 
-#beschreibung{
+.beschreibung{
     border: 1px solid black;
+    padding: 0.25em;
+    height: 4em;
+    overflow: hidden;
 }
 
 .darkmode{
-    background-color: black;
+    background-color: #1F1B24;
     color: white;
+}
+
+.darkmode button, .darkmode input[type="submit"] {
+    background-color: lightgray;
+    color: black;
+    border: none;
+}
+
+.darkmode .beschreibung {
+    border: 1px solid white;
+}
+
+.darkmode input[type="text"], .darkmode input[type="date"], .darkmode input[type="number"], .darkmode textarea, .darkmode select {
+    background-color: lightgray;
 }
 
 @media (max-width: 33em){
 
-    #container1, #container2, .container4{
+    #top-nav, #filter, .note-body{
         display: block;
 
     }
@@ -130,8 +116,6 @@ button:active, button:hover{
         padding-bottom: 10%;
 
     }
-
-
 
 }
 
