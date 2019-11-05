@@ -1,6 +1,6 @@
 <div id="top-nav">
     <form method='get'>
-        <button id="createNew" type="submit" id="createButton" formaction="/new">Create new Note</button></form>
+        <button type="submit" formaction="/new">Create new Note</button>
     </form>
     <form action='/' method='POST'>
         <input class="formButton" type="hidden" name="styleSwitcher" value="{{#ifEquals styleSwitch 'true'}}false{{else}}true{{/ifEquals}}"/>
@@ -10,15 +10,15 @@
 <div id="filter">
             <form action='/' method='POST'>
                 <input class="formButton" type="hidden" name="sorting" value="dueDate"/>
-                <input class="formButton" type="submit" value="By finish date {{#ifEquals sortBy 'dueDate'}}{{#ifEquals sortOrder 1}}&#x25B2{{else}}&#x25BC{{/ifEquals}}{{/ifEquals}}" {{#ifEquals sortBy 'dueDate'}}{{/ifEquals}} />
+                <input class="formButton" type="submit" value="By finish date {{#ifEquals sortBy 'dueDate'}}{{#ifEquals sortOrder 1}}&#x25B2;{{else}}&#x25BC;{{/ifEquals}}{{/ifEquals}}" {{#ifEquals sortBy 'dueDate'}}{{/ifEquals}} />
             </form>
             <form action='/' method='POST'>
                 <input class="formButton" type="hidden" name="sorting" value="createdDate"/>
-                <input class="formButton" type="submit" value="By created date {{#ifEquals sortBy 'createdDate'}}{{#ifEquals sortOrder 1}}&#x25B2{{else}}&#x25BC{{/ifEquals}}{{/ifEquals}}" {{#ifEquals sortBy 'createdDate'}}{{/ifEquals}} />
+                <input class="formButton" type="submit" value="By created date {{#ifEquals sortBy 'createdDate'}}{{#ifEquals sortOrder 1}}&#x25B2;{{else}}&#x25BC;{{/ifEquals}}{{/ifEquals}}" {{#ifEquals sortBy 'createdDate'}}{{/ifEquals}} />
             </form>
             <form action='/' method='POST'>
                 <input class="formButton" type="hidden" name="sorting" value="importance"/>
-                <input class="formButton" type="submit" value="By Importance {{#ifEquals sortBy 'importance'}}{{#ifEquals sortOrder 1}}&#x25B2{{else}}&#x25BC{{/ifEquals}}{{/ifEquals}}" {{#ifEquals sortBy 'importance'}}{{/ifEquals}} />
+                <input class="formButton" type="submit" value="By Importance {{#ifEquals sortBy 'importance'}}{{#ifEquals sortOrder 1}}&#x25B2;{{else}}&#x25BC;{{/ifEquals}}{{/ifEquals}}" {{#ifEquals sortBy 'importance'}}{{/ifEquals}} />
             </form>
             <form action='/' method='POST' id="hideFinsished">
                 <input class="formButton" type="hidden" name="showFinished" value="{{#ifEquals showFinished 'true'}}false{{else}}true{{/ifEquals}}"/>
@@ -29,7 +29,7 @@
     {{#if notes}}
 {{#each notes}}
     <div class="note-head" data-id="{{this.id}}">
-        <span>{{this.fertigBis}}</span><span>Title: {{this.title}}</span><div id="rating">{{#for this.wichtigkeit}}<span>&#9733;</span>{{/for}}</div>
+        <span>{{this.fertigBis}}</span><span>Title: {{this.title}}</span><div class="rating">{{#for this.wichtigkeit}}<span>&#9733;</span>{{/for}}</div>
     </div>
     {{#ifEquals this.state "FINISHED"}}
         <div class="note-body">
@@ -39,7 +39,7 @@
         </div>
     {{else}}
         <div class="note-body">
-            <label for="finished"><input type="checkbox" class="checkboxFinished" disabled>Finished</label>
+            <label><input type="checkbox" class="checkboxFinished" disabled>Finished</label>
             <span class="beschreibung">{{this.beschreibung}}</span>
             <form action='/edit/{{this._id}}' method='get' class="editButton"><button class="editButton">Edit</button></form>
         </div>
