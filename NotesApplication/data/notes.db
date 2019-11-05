@@ -1,23 +1,11 @@
-{"title":"test1","beschreibung":"Test1","wichtigkeit":"5","fertigBis":"2019-12-01","erstelltAm":"2019-10-24","orderedBy":"unknown","state":"FINISHED","_id":"8H4Z4TaQQzoCTAuM"}
-{"title":"test","beschreibung":"test","wichtigkeit":"2","fertigBis":"2019-02-01","erstelltAm":"2019-10-31","state":"NEW","_id":"Aio2wWaaB1KniQnR"}
+{"title":"test1","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"5","fertigBis":"2019-12-01","erstelltAm":"2019-11-04","state":"NEW","_id":"8H4Z4TaQQzoCTAuM"}
+{"title":"test","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2019-02-01","erstelltAm":"2019-11-04","state":"NEW","_id":"Aio2wWaaB1KniQnR"}
 {"title":"test10","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2019-01-01","erstelltAm":"2019-10-25","state":"FINISHED","_id":"KFnf4PSDMLFFxgqt"}
-{"title":"test1","beschreibung":"Test1","wichtigkeit":"5","fertigBis":"2019-12-01","erstelltAm":"2019-10-24","orderedBy":"unknown","state":"FINISHED","_id":"WGPOa4fFbN9grWsO"}
-{"title":"test8","beschreibung":"dies ist eine Testnotiz","wichtigkeit":"5","fertigBis":"2019-12-12","erstelltAm":"2019-10-25","orderedBy":"unknown","state":"NEW","_id":"bOUUsETS2NjaX81V"}
-{"title":"test 6","beschreibung":"neue note zum testen","wichtigkeit":"2","fertigBis":"2018-01-02","erstelltAm":"2019-10-25","orderedBy":"unknown","state":"FINISHED","_id":"cvzfW38wqBaTXGkL"}
-{"title":"test 6","beschreibung":"neue note zum testen","wichtigkeit":"2","fertigBis":"2018-01-02","erstelltAm":"2019-10-25","orderedBy":"unknown","state":"FINISHED","_id":"cyEhhRM1SCq3Yj0B"}
-{"title":"test2","beschreibung":"test2","wichtigkeit":"4","fertigBis":"2019-10-25","erstelltAm":"2019-10-24","orderedBy":"unknown","state":"NEW","_id":"oA0J0IfvozqzVj2S"}
-{"title":"test10","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2019-01-01","erstelltAm":"2019-10-25","state":"FINISHED","_id":"qOaBCd8Cxj3t7Y8r"}
-{"title":"test7","beschreibung":"dies ist eine testnotiz","wichtigkeit":"1","fertigBis":"2019-03-01","erstelltAm":"2019-10-25","orderedBy":"unknown","state":"NEW","_id":"rWdld05GDqHxJ5qG"}
-{"title":"test","beschreibung":"test","wichtigkeit":"3","fertigBis":"2019-04-03","erstelltAm":"2019-10-31","state":"NEW","_id":"y2pC9I5Sn5njdeDY"}
+{"title":"test1","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"5","fertigBis":"2019-12-01","erstelltAm":"2019-11-04","state":"NEW","_id":"WGPOa4fFbN9grWsO"}
+{"title":"test8","beschreibung":"Dies ist eine neue Testnotiz ","wichtigkeit":"5","fertigBis":"2019-12-12","erstelltAm":"2019-11-04","state":"NEW","_id":"bOUUsETS2NjaX81V"}
 {"title":"test 6","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2018-01-02","erstelltAm":"2019-11-04","state":"NEW","_id":"cvzfW38wqBaTXGkL"}
 {"title":"test 6","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2018-01-02","erstelltAm":"2019-11-04","state":"NEW","_id":"cyEhhRM1SCq3Yj0B"}
-{"title":"test","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2019-02-01","erstelltAm":"2019-11-04","state":"NEW","_id":"Aio2wWaaB1KniQnR"}
-{"title":"test7","beschreibung":"dies ist eine testnotiz","wichtigkeit":"1","fertigBis":"2019-03-01","erstelltAm":"2019-11-04","state":"NEW","_id":"rWdld05GDqHxJ5qG"}
-{"title":"test","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"3","fertigBis":"2019-04-03","erstelltAm":"2019-11-04","state":"NEW","_id":"y2pC9I5Sn5njdeDY"}
-{"title":"test7","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"1","fertigBis":"2019-03-01","erstelltAm":"2019-11-04","state":"NEW","_id":"rWdld05GDqHxJ5qG"}
 {"title":"test2","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"4","fertigBis":"2019-10-25","erstelltAm":"2019-11-04","state":"NEW","_id":"oA0J0IfvozqzVj2S"}
-{"title":"test1","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"5","fertigBis":"2019-12-01","erstelltAm":"2019-11-04","state":"NEW","_id":"8H4Z4TaQQzoCTAuM"}
-{"title":"test1","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"5","fertigBis":"2019-12-01","erstelltAm":"2019-11-04","state":"NEW","_id":"WGPOa4fFbN9grWsO"}
-{"title":"test8","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"5","fertigBis":"2019-12-12","erstelltAm":"2019-11-04","state":"NEW","_id":"bOUUsETS2NjaX81V"}
-{"title":"test8","beschreibung":"Dies ist eine neue Testnotiz sadlföjasdköjfdasfjöaldsfjadsölfjadsöfjkadsöfjdasöfkladsjlöfjkdasfklöjadsfjadsöfljadslöflkjadsflköjadslköfjkladsfjlköjadsklf","wichtigkeit":"5","fertigBis":"2019-12-12","erstelltAm":"2019-11-04","state":"NEW","_id":"bOUUsETS2NjaX81V"}
-{"title":"test8","beschreibung":"Dies ist eine neue Testnotiz ","wichtigkeit":"5","fertigBis":"2019-12-12","erstelltAm":"2019-11-04","state":"NEW","_id":"bOUUsETS2NjaX81V"}
+{"title":"test10","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2019-01-01","erstelltAm":"2019-10-25","state":"FINISHED","_id":"qOaBCd8Cxj3t7Y8r"}
+{"title":"test7","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"1","fertigBis":"2019-03-01","erstelltAm":"2019-11-04","state":"NEW","_id":"rWdld05GDqHxJ5qG"}
+{"title":"test","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"3","fertigBis":"2019-04-03","erstelltAm":"2019-11-04","state":"NEW","_id":"y2pC9I5Sn5njdeDY"}
