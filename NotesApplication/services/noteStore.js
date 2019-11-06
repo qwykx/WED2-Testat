@@ -119,7 +119,7 @@ export class NoteStore{
             if ( a.fertigBis < b.fertigBis){
                 return -1;
             }
-            if ( a.fertigBis> b.fertigBis ){
+            if ( a.fertigBis > b.fertigBis ){
                 return 1;
             }
             return 0;
@@ -128,7 +128,7 @@ export class NoteStore{
         if ( a.fertigBis < b.fertigBis){
             return 1;
         }
-        if ( a.fertigBis> b.fertigBis ){
+        if ( a.fertigBis > b.fertigBis ){
             return -1;
         }
         return 0;
@@ -151,21 +151,23 @@ export class NoteStore{
         }
         return 0;
     }
-        compareByImportance( a, b ) {
+
+    compareByImportance( a, b ) {
         if ( a.wichtigkeit < b.wichtigkeit){
-            return 1;
+            return -1;
         }
         if ( a.wichtigkeit> b.wichtigkeit ){
-            return -1;
+            return 1;
         }
         return 0;
     }
+
     compareByImportanceDecrease( a, b ) {
         if ( a.wichtigkeit < b.wichtigkeit){
-            return -1;
+            return 1;
         }
         if ( a.wichtigkeit> b.wichtigkeit ){
-            return 1;
+            return -1;
         }
         return 0;
     }
