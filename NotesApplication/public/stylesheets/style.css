@@ -110,8 +110,8 @@ button:active, button:hover{
         width: 100%;
     }
 
-    #beschreibung{
-
+    .beschreibung{
+        height: 3em;
         display: block;
         padding-bottom: 10%;
 
