@@ -106,7 +106,7 @@ button:active, button:hover{
 
     }
 
-    input[type=submit], #createNew{
+    input[type=submit], #createNew, #top-nav, #createButton{
         width: 100%;
     }
 
