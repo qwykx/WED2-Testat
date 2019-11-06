@@ -106,12 +106,12 @@ button:active, button:hover{
 
     }
 
-    input[type=submit], #createNew{
+    input[type=submit], #createNew, #top-nav, #createButton{
         width: 100%;
     }
 
-    #beschreibung{
-
+    .beschreibung{
+        height: 3em;
         display: block;
         padding-bottom: 10%;
 

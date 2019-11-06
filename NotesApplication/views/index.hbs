@@ -1,6 +1,6 @@
 <div id="top-nav">
     <form method='get'>
-        <button type="submit" formaction="/new">Create new Note</button>
+        <button id="createButton" type="submit" formaction="/new">Create new Note</button>
     </form>
     <form action='/' method='POST'>
         <input class="formButton" type="hidden" name="styleSwitcher" value="{{#ifEquals styleSwitch 'true'}}false{{else}}true{{/ifEquals}}"/>
