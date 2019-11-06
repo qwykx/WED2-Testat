@@ -11,18 +11,6 @@ app.engine('hbs', hbs.express4({
     layoutsDir: path.resolve('views/layouts/'),
 }));
 
-function setImportance(n, importance,_id, block, param, endTag) {
-    const importanceTypes = ["*", "**", "***", "****", "*****"];
-    var temp = '';
-    for(var i = n - 1; i >= 0; --i)
-    {
-        var importanceType = "" + importanceTypes[i];
-        temp += block.fn({index:i, importanceType:importanceType, id:_id});
-        if(i === importance)
-            temp = temp.replace(''+i+'" '+endTag+'', ''+i+'" '+param+ ''+endTag);
-    }
-    return temp;
-}
 
 hbs.registerHelper('for', function(n, block) {
     let counter = '';

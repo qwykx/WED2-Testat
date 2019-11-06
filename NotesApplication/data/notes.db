@@ -9,3 +9,5 @@
 {"title":"test10","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2019-01-01","erstelltAm":"2019-10-25","state":"FINISHED","_id":"qOaBCd8Cxj3t7Y8r"}
 {"title":"test7","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"1","fertigBis":"2019-03-01","erstelltAm":"2019-11-04","state":"NEW","_id":"rWdld05GDqHxJ5qG"}
 {"title":"test","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"3","fertigBis":"2019-04-03","erstelltAm":"2019-11-04","state":"NEW","_id":"y2pC9I5Sn5njdeDY"}
+{"title":"test8","beschreibung":"ewrew","wichtigkeit":"4","fertigBis":"2012-09-01","erstelltAm":"2019-11-06","state":"NEW","_id":"kAJkD8T4goPvYbbv"}
+{"title":"test10","beschreibung":"Dies ist eine neue Testnotiz","wichtigkeit":"2","fertigBis":"2019-01-01","erstelltAm":"2019-11-06","state":"NEW","_id":"KFnf4PSDMLFFxgqt"}
