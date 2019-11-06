@@ -18,7 +18,7 @@ function setImportance(n, importance,_id, block, param, endTag) {
     {
         var importanceType = "" + importanceTypes[i];
         temp += block.fn({index:i, importanceType:importanceType, id:_id});
-        if(i == importance)
+        if(i === importance)
             temp = temp.replace(''+i+'" '+endTag+'', ''+i+'" '+param+ ''+endTag);
     }
     return temp;
